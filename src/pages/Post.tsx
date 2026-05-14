@@ -37,6 +37,7 @@ export const Post = () => {
   } else {
     // バリデーション以外のエラー（DB保存失敗、500エラーなど）
     alert(result.message || "予期せぬエラーが発生しました。");
+    navigate("/");
   }
 }
   };

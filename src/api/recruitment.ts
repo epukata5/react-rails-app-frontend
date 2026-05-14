@@ -1,6 +1,5 @@
 import { type JobCategoryKey } from "@/types/app";
 import type { RecruitmentFormData } from "@/types/app";
-import { useNavigate } from "react-router-dom";
 
 const url = import.meta.env.VITE_API_URL;
 interface Recruitment {
@@ -27,8 +26,6 @@ export const getRecruitments = async (): Promise<Recruitment[]> => {
 // APIに求人データを送信する関数
 export const submitRecruitment = async (formData: RecruitmentFormData) => {
 
-  const navigate = useNavigate();
-
   try {
     const response = await fetch(`${url}/recruitments`, {
       method: "POST",
@@ -54,8 +51,8 @@ export const submitRecruitment = async (formData: RecruitmentFormData) => {
 
   } catch (error) {
     console.error("通信エラー:", error);
-    return { success: false, message: "サーバーとの通信に失敗しました。ネットワークを確認してください。" };
-    navigate("/post");
+    return { success: false, message: "サーバーとの通信に失敗しました。ネットワークを確認してください。"};
+    
   }
 
 }
